@@ -1,5 +1,5 @@
 data "template_file" "nginx-task-definition-template" {
-  template = file("./templates/app.json.tpl")
+  template = file("${path.module}/templates/app.json.tpl")
   vars = {
     REPOSITORY_URL = "${var.REGISTRY}"
     CONTAINER_NAME = "${var.CONTAINER_NAME}"
