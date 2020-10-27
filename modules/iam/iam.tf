@@ -23,9 +23,9 @@ resource "aws_iam_instance_profile" "ecs-ec2-role" {
 }
 
 resource "aws_iam_role_policy" "ecs-ec2-role-policy" {
-name   = "ecs-ec2-role-policy"
-role   = "${aws_iam_role.ecs-ec2-role.id}"
-policy = <<EOF
+  name   = "ecs-ec2-role-policy"
+  role   = "${aws_iam_role.ecs-ec2-role.id}"
+  policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -55,8 +55,8 @@ EOF
 
 # ecs service role
 resource "aws_iam_role" "ecs-service-role" {
-name = "ecs-service-role"
-assume_role_policy = <<EOF
+  name               = "ecs-service-role"
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [

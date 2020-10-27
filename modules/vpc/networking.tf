@@ -84,10 +84,10 @@ resource "aws_security_group" "nginx-elb-securitygroup" {
   }
 
   ingress {
-    from_port       = "${var.INGRESS.FROM}"
-    to_port         = "${var.INGRESS.TO}"
-    protocol        = "${var.INGRESS.PROTOCOL}"
-    cidr_blocks     = ["${var.INGRESS.CIDR}"]
+    from_port   = "${var.INGRESS.FROM}"
+    to_port     = "${var.INGRESS.TO}"
+    protocol    = "${var.INGRESS.PROTOCOL}"
+    cidr_blocks = ["${var.INGRESS.CIDR}"]
   }
   tags = {
     Name = "nginx-elb"

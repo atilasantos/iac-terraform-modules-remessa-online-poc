@@ -15,8 +15,8 @@ variable "DNS_HOSTNAMES" {
 }
 
 variable "VPC_NAME" {
-    default = "vpc-nginx"
-  
+  default = "vpc-nginx"
+
 }
 
 variable "SUBNET_CIDR" {
@@ -28,7 +28,7 @@ variable "MAP_PUBLIC_IP_ONLNCH" {
 }
 
 variable "SUBNET_AZ" {
-  default = "us-east-2a"  
+  default = "us-east-2a"
 }
 
 variable "ROUTE_CIDR" {
@@ -39,21 +39,21 @@ variable "ROUTE_CIDR" {
 variable "EGRESS" {
   type = "map"
   default = {
-      "FROM"= 0
-      "TO" = 0
-      "PROTOCOL" = "-1"
-      "CIDR" = "0.0.0.0/0"
+    "FROM"     = 0
+    "TO"       = 0
+    "PROTOCOL" = "-1"
+    "CIDR"     = "0.0.0.0/0"
   }
 }
 
 variable "INGRESS" {
-    type = "map"
-    default = {
-        "FROM" = 80
-        "TO" = 80
-        "PROTOCOL" = "TCP"
-        "CIDR" = "0.0.0.0/0"
-    }
-  
+  type = "map"
+  default = {
+    "FROM"     = 80
+    "TO"       = 80
+    "PROTOCOL" = "TCP"
+    "CIDR"     = "0.0.0.0/0"
+  }
+
 }
 

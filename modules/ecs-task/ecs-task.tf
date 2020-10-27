@@ -4,7 +4,7 @@ data "template_file" "nginx-task-definition-template" {
     REPOSITORY_URL = "${var.REGISTRY}"
     CONTAINER_NAME = "${var.CONTAINER_NAME}"
     CONTAINER_PORT = "${var.CONTAINER_PORT}"
-    HOST_PORT = "${var.HOST_PORT}"
+    HOST_PORT      = "${var.HOST_PORT}"
   }
 }
 
