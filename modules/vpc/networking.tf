@@ -62,14 +62,16 @@ resource "aws_security_group" "nginx-ecs-securitygroup" {
   }
 
   dynamic "ingress" {
-    for_each = [22,80]
-    from_port       = ingress.value
-    to_port         = ingress.value
-    protocol        = "${var.INGRESS.PROTOCOL}"
-    security_groups = ["${aws_security_group.nginx-elb-securitygroup.id}"]
-  }
-  tags = {
-    Name = "nginx-ecs"
+    for_each = [22, 80]
+    content {
+      from_port       = ingress.value
+      to_port         = ingress.value
+      protocol        = "${var.INGRESS.PROTOCOL}"
+      security_groups = ["${aws_security_group.nginx-elb-securitygroup.id}"]
+      tags = {
+        Name = "nginx-ecs"
+      }
+    }
   }
 }
 
