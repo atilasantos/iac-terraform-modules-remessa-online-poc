@@ -68,10 +68,10 @@ resource "aws_security_group" "nginx-ecs-securitygroup" {
       to_port         = ingress.value
       protocol        = "${var.INGRESS.PROTOCOL}"
       security_groups = ["${aws_security_group.nginx-elb-securitygroup.id}"]
-      tags = {
-        Name = "nginx-ecs"
-      }
     }
+  }
+  tags = {
+    Name = "nginx-ecs"
   }
 }
 
