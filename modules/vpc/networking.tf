@@ -61,9 +61,10 @@ resource "aws_security_group" "nginx-ecs-securitygroup" {
     cidr_blocks = ["${var.EGRESS.CIDR}"]
   }
 
-  ingress {
-    from_port       = "${var.INGRESS.FROM}"
-    to_port         = "${var.INGRESS.TO}"
+  dynamic "ingress" {
+    for_each = [22,80]
+    from_port       = ingress.value
+    to_port         = ingress.value
     protocol        = "${var.INGRESS.PROTOCOL}"
     security_groups = ["${aws_security_group.nginx-elb-securitygroup.id}"]
   }
